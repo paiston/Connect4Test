@@ -2,25 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Connect4.Interfaces;
 using Connect4.Interfaces.Players;
 
 namespace Connect4.Players
 {
     public class Computer : IPlayer
     {
-        static int Rows = 6;
-        static int Columns = 6;
         private int number;
         private int firstLevel = 0;
         public int CutOffLevel = 6;
-        public int[] Weights = new int[] { 1, 2, 4, 8, 1, 2, 8, 16 };
+        public int[] Weights = new int[] { 1, 5, 100, 10000, 2, 6, 200, 15000 };
+        IBoardSettings _BoardSettings;
 
-        public Computer(int playerNumber)
+        public Computer(int playerNumber, BoardSettings boardSettings)
         {
+            _BoardSettings = boardSettings;
             number = playerNumber;
         }
 
-        int IPlayer.PlayerTurn(State state)
+        public int PlayerTurn(State state)
         {
             //find best action to perform...
             return MoveSearch(state);
@@ -126,11 +127,11 @@ namespace Connect4.Players
             int score = 0;
 
             //Horizontal
-            for (int i = 0; i < Rows; i++)
+            for (int i = 0; i < _BoardSettings.Rows; i++)
                 score += CheckLine(state[0, i], state[1, i], state[2, i], state[3, i], state[4, i], state[5, i], state[6, i]);
 
             //Vertical
-            for(int i = 0; i < Columns; i++)
+            for (int i = 0; i < _BoardSettings.Columns; i++)
                 score += CheckLine(state[i, 0], state[i, 1], state[i, 2], state[i, 3], state[i, 4], state[i, 5]);
 
             //Diagonal
@@ -148,7 +149,7 @@ namespace Connect4.Players
             score += CheckLine(state[6, 0], state[5, 1], state[4, 2], state[3, 3], state[2, 4], state[1, 5]);
             score += CheckLine(state[6, 1], state[5, 2], state[4, 3], state[3, 4], state[2, 5]);
             score += CheckLine(state[6, 2], state[5, 3], state[4, 4], state[3, 5]);
-            return score; ;
+            return score;
         }
 
         /// <summary>

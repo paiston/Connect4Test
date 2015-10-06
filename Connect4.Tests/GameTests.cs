@@ -11,13 +11,16 @@ namespace Connect4.Tests
     public class GameTests
     {
         Connect4 c4 = null;
+        BoardSettings boardSettings;
 
         [SetUp]
         public void Setup()
         {
-            c4 = new Connect4(new BoardSettings() { Columns = 7, Rows = 6 }, new Message());
+            boardSettings = new BoardSettings() { Columns = 7, Rows = 6, WinningCount = 4, Turn = 1, MoveCount = 0 };
+
+            c4 = new Connect4(boardSettings, new Message());
             c4.Player1 = new Human();
-            c4.Player2 = new Computer(2);
+            c4.Player2 = new Computer(2, boardSettings);
         }
 
         [Test]
@@ -32,7 +35,7 @@ namespace Connect4.Tests
             // 2 1 2 1 2 1 2
             // 1 2 1 2 1 2 1
 
-            for (int i = 0; i <= 7; i++)
+            for (int i = 0; i <= boardSettings.Columns; i++)
             {
                 for (int j = 1; j <= 3; j++)
                 {
@@ -40,7 +43,7 @@ namespace Connect4.Tests
                 }
             }
                         
-            Assert.AreEqual(c4.CheckGameStateForWin(),0);
+            Assert.AreEqual(0,c4.CheckGameStateForWin());
         }
 
         [Test]
@@ -151,16 +154,63 @@ namespace Connect4.Tests
             // 2 1 2 1 2 1 2
             // 1 2 1 2 1 2 1
 
-            for (int i = 0; i <= 6; i++)
-            {
-                for (int j = 0; j <= 5; j++)
-                {
-                    c4.Turn(i);
-                }
-            }
+            c4.Turn(1);
+            c4.Turn(1);
+            c4.Turn(1);
+           
+            c4.Turn(2);
+            c4.Turn(2);
+            c4.Turn(2);
 
-            Assert.AreEqual(c4.CheckGameStateForWin(), -1);
-        
+            c4.Turn(3);
+            c4.Turn(3);
+            c4.Turn(3);
+
+            c4.Turn(4);
+            c4.Turn(4);
+            c4.Turn(4);
+
+            c4.Turn(5);
+            c4.Turn(5);
+            c4.Turn(5);
+
+            c4.Turn(6);
+            c4.Turn(6);
+            c4.Turn(6);
+
+            c4.Turn(7);
+            c4.Turn(7);
+            c4.Turn(7);
+
+            c4.Turn(2);
+            c4.Turn(2);
+            c4.Turn(2);
+
+            c4.Turn(3);
+            c4.Turn(3);
+            c4.Turn(3);
+
+            c4.Turn(4);
+            c4.Turn(4);
+            c4.Turn(4);
+
+            c4.Turn(5);
+            c4.Turn(5);
+            c4.Turn(5);
+
+            c4.Turn(6);
+            c4.Turn(6);
+            c4.Turn(6);
+
+            c4.Turn(7);
+            c4.Turn(7);
+            c4.Turn(1);
+
+            c4.Turn(1);
+            c4.Turn(1);
+            c4.Turn(7);
+
+            Assert.AreEqual(-1, c4.CheckGameStateForWin());
         }
 
 

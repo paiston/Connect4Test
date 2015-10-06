@@ -8,9 +8,17 @@ namespace Connect4.Tests
 {
     class Message : IMessage
     {
-        public void Write(string message)
+        public void Write(State state)
         {
             
+        }
+
+        public void WriteLine(string message)
+        {
+        }
+
+        public void Clear()
+        {
         }
     }
 }

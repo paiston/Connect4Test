@@ -1,0 +1,4 @@
+C:\Users\paiston.APOLLOMEDICAL\Documents\GitHub\Connect4Test\Connect4.Application\bin\Debug\Connect4.dll
+C:\Users\paiston.APOLLOMEDICAL\Documents\GitHub\Connect4Test\Connect4.Application\bin\Debug\Connect4.pdb
+C:\Users\paiston.APOLLOMEDICAL\Documents\GitHub\Connect4Test\Connect4.Application\obj\Debug\Connect4.dll
+C:\Users\paiston.APOLLOMEDICAL\Documents\GitHub\Connect4Test\Connect4.Application\obj\Debug\Connect4.pdb

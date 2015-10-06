@@ -7,6 +7,8 @@ namespace Connect4.Interfaces
 {
     public interface IMessage
     {
-        void Write(string message);
+        void Write(State GameState);
+        void WriteLine(string message);
+        void Clear();
     }
 }

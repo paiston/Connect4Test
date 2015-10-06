@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="true">
-  <TopNode>[0-1008]C:\Users\paiston.APOLLOMEDICAL\OneDrive\GitHub\connect4\Connect4.Tests\bin\Debug\Connect4.Tests.dll</TopNode>
-  <SelectedNode>[0-1001]Connect4.Tests.GameTests.PartFillGridNoWin</SelectedNode>
+<VisualState xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ShowCheckBoxes="true">
+  <TopNode>[0-1008]C:\Users\paiston.APOLLOMEDICAL\Documents\GitHub\Connect4Test\Connect4.Tests\bin\Debug\Connect4.Tests.dll</TopNode>
+  <SelectedNode>[0-1006]Connect4.Tests.GameTests.Tie</SelectedNode>
   <ExcludeCategories>false</ExcludeCategories>
   <Nodes>
-    <Node UniqueName="[0-1008]C:\Users\paiston.APOLLOMEDICAL\OneDrive\GitHub\connect4\Connect4.Tests\bin\Debug\Connect4.Tests.dll" Expanded="true" />
+    <Node UniqueName="[0-1008]C:\Users\paiston.APOLLOMEDICAL\Documents\GitHub\Connect4Test\Connect4.Tests\bin\Debug\Connect4.Tests.dll" Expanded="true" />
     <Node UniqueName="[0-1009]Connect4" Expanded="true" />
     <Node UniqueName="[0-1010]Connect4.Tests" Expanded="true" />
     <Node UniqueName="[0-1000]Connect4.Tests.GameTests" Expanded="true" />

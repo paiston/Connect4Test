@@ -28,8 +28,7 @@ namespace Connect4
             //Initialise
             _Message = message;
             Winner = false;
-            GameState = new State(boardSettings.Columns,boardSettings.Rows);
-            GameState.Turn = 1;
+            GameState = new State(boardSettings);
         }
         
         public bool Turn(int move)
@@ -45,7 +44,7 @@ namespace Connect4
             }
             catch(Exception ex)
             {
-                _Message.Write(string.Format("Invalid move - {0}", ex.Message));
+                _Message.WriteLine(string.Format("Invalid move - {0}", ex.Message));
             }
             return true;
         }
@@ -76,9 +75,9 @@ namespace Connect4
                 Console.WriteLine(GameState);
             }
             
-            Console.Clear();
-            Console.WriteLine(" # # # # # # # # # # # #    CONNECT 4     # # # # # # # # # # # # \n");
-            Console.Write(GameState);
+            _Message.Clear();
+            _Message.WriteLine(" # # # # # # # # # # # #    CONNECT 4     # # # # # # # # # # # # \n");
+            _Message.Write(GameState);
             
             if(w==-1)
                 Console.WriteLine(" ITS A TIE!!!");

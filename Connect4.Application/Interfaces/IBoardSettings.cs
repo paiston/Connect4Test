@@ -10,5 +10,7 @@ namespace Connect4.Interfaces
         int Columns { get; set; }
         int Rows { get; set; }
         int WinningCount { get; set; }
+        int MoveCount { get; set; }
+        int Turn { get; set; }
     }
 }

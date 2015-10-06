@@ -4,6 +4,7 @@
     <StartAction>Program</StartAction>
     <StartProgram>C:\Program Files %28x86%29\NUnit 2.6.4\bin\nunit.exe</StartProgram>
     <StartArguments>Connect4.Tests.dll /run</StartArguments>
-    <StartWorkingDirectory>C:\Users\paiston.APOLLOMEDICAL\OneDrive\GitHub\connect4\Connect4.Tests\bin\Debug\</StartWorkingDirectory>
+    <StartWorkingDirectory>
+    </StartWorkingDirectory>
   </PropertyGroup>
 </Project>

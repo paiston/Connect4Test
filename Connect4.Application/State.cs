@@ -2,19 +2,30 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Connect4.Interfaces;
 
 namespace Connect4
 {
     public class State
     {
         public int[,] Values;
-        public int[] RowCount;
-        public int Turn;
+        public int[] RowCount;       
         public int StateValue;
-        public int MoveCount;
+        
         public Dictionary<int, State> Successors;
-        public int Rows = 6;
-        public int Columns = 7;
+        protected readonly IBoardSettings _BoardSettings;
+
+        public int Turn
+        {
+            get { return _BoardSettings.Turn; }
+            set { _BoardSettings.Turn = value; }
+        }
+
+        public int MoveCount
+        {
+            get { return _BoardSettings.MoveCount; }
+            set { _BoardSettings.MoveCount = value; }
+        }
 
         /// <summary>
         /// New state base on old state
@@ -24,8 +35,7 @@ namespace Connect4
         {
             Values = (int[,])original.Values.Clone();
             RowCount = (int[])original.RowCount.Clone();
-            Turn = original.Turn;
-            MoveCount = original.MoveCount;
+            _BoardSettings = original._BoardSettings;
         }
 
         /// <summary>
@@ -33,26 +43,15 @@ namespace Connect4
         /// </summary>
         /// <param name="cols">No. of columns within grid</param>
         /// <param name="rows">No. of Rows within grid.</param>
-        public State(int cols, int rows)
+        public State(IBoardSettings boardSettings)
         {
-            Rows = rows;
-            Columns = cols;
+            _BoardSettings = boardSettings;
 
-            Values = new int[Columns, Rows];
-            RowCount = new int[Columns];
-            MoveCount = 0;
+            Values = new int[_BoardSettings.Columns, _BoardSettings.Rows];
+            RowCount = new int[_BoardSettings.Columns];
+            _BoardSettings.MoveCount = 0;
         }
-
-        /// <summary>
-        /// New State with defaulted grid size.
-        /// </summary>
-        public State()
-        {
-            Values = new int[Columns, Rows];
-            RowCount = new int[Columns];
-            MoveCount = 0;
-        }
-
+        
         #region Game Methods
 
         /// <summary>
@@ -64,20 +63,20 @@ namespace Connect4
         {
             State state = new State(this);
 
-            if (iMove < 1 || iMove > Columns)
+            if (iMove < 1 || iMove > _BoardSettings.Columns)
             {
-                throw new ArgumentOutOfRangeException(string.Format("Specified column {1} is not valid.  Column index must be between 1 and {0}.", Columns, iMove));
+                throw new ArgumentOutOfRangeException(string.Format("Specified column {1} is not valid.  Column index must be between 1 and {0}.", _BoardSettings.Columns, iMove));
             }
             
             int m = iMove - 1;
 
 
-            if (state.RowCount[m] == Rows) return null;  //column full.
+            if (state.RowCount[m] == _BoardSettings.Rows) return null;  //column full.
 
             state.RowCount[m]++;
-            state.Values[m, (Rows - state.RowCount[m])] = state.Turn; //updates the board.
+            state.Values[m, (_BoardSettings.Rows - state.RowCount[m])] = state.Turn; //updates the board.
             state.Turn = (state.Turn == 1) ? 2 : 1; //switch player.
-            state.MoveCount++;
+            state._BoardSettings.MoveCount++;
 
             return state;
         }
@@ -122,14 +121,14 @@ namespace Connect4
             int result = 0;
 
             //Check Horizontal
-            for(int i = 0; i < Rows; i++)
+            for (int i = 0; i < _BoardSettings.Rows; i++)
             {
                 result = CheckLine(Values[0, i], Values[1, i], Values[2, i], Values[3, i], Values[4, i], Values[5, i], Values[6, i]);
                 if (result != 0) return result;
             }
 
             //Check Vertical
-            for (int i = 0; i < Rows; i++)
+            for (int i = 0; i < _BoardSettings.Rows; i++)
             {
                 result = CheckLine(Values[i, 0], Values[i, 1], Values[i, 2], Values[i, 3], Values[i, 4], Values[i, 5]);
                 if (result != 0) return result;
@@ -164,10 +163,10 @@ namespace Connect4
             if (result != 0) return result;
 
             //Check full board
-            bool full = false;
+            bool full = true;
             for(int i = 0; i < this.RowCount.Length; i++)
             {
-                if (RowCount[i] < Rows)
+                if (RowCount[i] < _BoardSettings.Rows)
                 {
                     full = false;
                     break; //row has space, board not full so breka out of loop.
@@ -189,16 +188,16 @@ namespace Connect4
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("\t1\t2\t3\t4\t5\t6\t7\n\n");
-            
-            for(int j = 0; j <Rows; j++)
+
+            for (int j = 0; j < _BoardSettings.Rows; j++)
             {
                 for(int i = 0; i < 7; i++)
                     sb.Append("\t" + ((Values[i, j] == 0) ? "*" : ((Values[i, j] == 1) ? "1" : "2")));
 
                 sb.Append("\n\n");
             }
-            
-            sb.Append(string.Format("\n\nMoves: {0} \nNext turn: Player {1}\n", MoveCount.ToString(), Turn.ToString()));
+
+            sb.Append(string.Format("\n\nMoves: {0} \nNext turn: Player {1}\n", _BoardSettings.MoveCount.ToString(), Turn.ToString()));
             
             return sb.ToString();
         }

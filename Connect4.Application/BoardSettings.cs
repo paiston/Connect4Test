@@ -8,22 +8,10 @@ namespace Connect4
 {
     public class BoardSettings : IBoardSettings
     {
-        public int Columns
-        {
-            get;
-            set;
-        }
-
-        public int Rows
-        {
-            get;
-            set;
-        }
-
-        public int WinningCount
-        {
-            get;
-            set;
-        }
+        public int Columns { get; set; }
+        public int Rows { get; set; }
+        public int WinningCount { get; set; }
+        public int MoveCount { get; set; }
+        public int Turn { get; set; }
     }
 }

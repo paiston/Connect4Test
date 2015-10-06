@@ -5,3 +5,10 @@ C:\Users\paiston.APOLLOMEDICAL\OneDrive\GitHub\connect4\Connect4.Console\bin\Deb
 C:\Users\paiston.APOLLOMEDICAL\OneDrive\GitHub\connect4\Connect4.Console\bin\Debug\Connect4.pdb
 C:\Users\paiston.APOLLOMEDICAL\OneDrive\GitHub\connect4\Connect4.Console\obj\Debug\Connect4.Console.exe
 C:\Users\paiston.APOLLOMEDICAL\OneDrive\GitHub\connect4\Connect4.Console\obj\Debug\Connect4.Console.pdb
+C:\Users\paiston.APOLLOMEDICAL\Documents\GitHub\Connect4Test\Connect4.Console\bin\Debug\Connect4.Console.exe
+C:\Users\paiston.APOLLOMEDICAL\Documents\GitHub\Connect4Test\Connect4.Console\bin\Debug\Connect4.Console.pdb
+C:\Users\paiston.APOLLOMEDICAL\Documents\GitHub\Connect4Test\Connect4.Console\bin\Debug\Connect4.dll
+C:\Users\paiston.APOLLOMEDICAL\Documents\GitHub\Connect4Test\Connect4.Console\bin\Debug\Connect4.pdb
+C:\Users\paiston.APOLLOMEDICAL\Documents\GitHub\Connect4Test\Connect4.Console\obj\Debug\Connect4.Console.csprojResolveAssemblyReference.cache
+C:\Users\paiston.APOLLOMEDICAL\Documents\GitHub\Connect4Test\Connect4.Console\obj\Debug\Connect4.Console.exe
+C:\Users\paiston.APOLLOMEDICAL\Documents\GitHub\Connect4Test\Connect4.Console\obj\Debug\Connect4.Console.pdb

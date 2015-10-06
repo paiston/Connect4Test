@@ -1,29 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="C:\Users\paiston.APOLLOMEDICAL\OneDrive\GitHub\connect4\Connect4.Tests\bin\Debug\Connect4.Tests.dll" total="6" errors="0" failures="1" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2015-10-05" time="18:05:30">
-  <environment nunit-version="2.6.4.14350" clr-version="4.0.30319.34014" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Users\paiston.APOLLOMEDICAL\OneDrive\GitHub\connect4\Connect4.Tests\bin\Debug" machine-name="DEV16" user="paiston" user-domain="APOLLOMEDICAL" />
+<test-results name="C:\Users\paiston.APOLLOMEDICAL\Documents\GitHub\Connect4Test\Connect4.Tests\bin\Debug\Connect4.Tests.dll" total="6" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2015-10-06" time="22:11:02">
+  <environment nunit-version="2.6.4.14350" clr-version="4.0.30319.34014" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Users\paiston.APOLLOMEDICAL\Documents\GitHub\Connect4Test\Connect4.Tests\bin\Debug" machine-name="DEV16" user="paiston" user-domain="APOLLOMEDICAL" />
   <culture-info current-culture="en-GB" current-uiculture="en-US" />
-  <test-suite type="Assembly" name="C:\Users\paiston.APOLLOMEDICAL\OneDrive\GitHub\connect4\Connect4.Tests\bin\Debug\Connect4.Tests.dll" executed="True" result="Failure" success="False" time="52.696" asserts="0">
+  <test-suite type="Assembly" name="C:\Users\paiston.APOLLOMEDICAL\Documents\GitHub\Connect4Test\Connect4.Tests\bin\Debug\Connect4.Tests.dll" executed="True" result="Success" success="True" time="6.379" asserts="0">
     <results>
-      <test-suite type="Namespace" name="Connect4" executed="True" result="Failure" success="False" time="52.687" asserts="0">
+      <test-suite type="Namespace" name="Connect4" executed="True" result="Success" success="True" time="6.371" asserts="0">
         <results>
-          <test-suite type="Namespace" name="Tests" executed="True" result="Failure" success="False" time="52.687" asserts="0">
+          <test-suite type="Namespace" name="Tests" executed="True" result="Success" success="True" time="6.371" asserts="0">
             <results>
-              <test-suite type="TestFixture" name="GameTests" executed="True" result="Failure" success="False" time="52.684" asserts="0">
+              <test-suite type="TestFixture" name="GameTests" executed="True" result="Success" success="True" time="6.368" asserts="0">
                 <results>
-                  <test-case name="Connect4.Tests.GameTests.DiagonalWin1" executed="True" result="Success" success="True" time="3.816" asserts="1" />
+                  <test-case name="Connect4.Tests.GameTests.DiagonalWin1" executed="True" result="Success" success="True" time="0.027" asserts="1" />
                   <test-case name="Connect4.Tests.GameTests.DiagonalWin2" executed="True" result="Success" success="True" time="0.000" asserts="1" />
                   <test-case name="Connect4.Tests.GameTests.HorizontalWin" executed="True" result="Success" success="True" time="0.000" asserts="1" />
-                  <test-case name="Connect4.Tests.GameTests.PartFillGridNoWin" executed="True" result="Success" success="True" time="0.061" asserts="1" />
-                  <test-case name="Connect4.Tests.GameTests.Tie" executed="True" result="Failure" success="False" time="48.736" asserts="1">
-                    <failure>
-                      <message><![CDATA[  Expected: 2
-  But was:  -1
-]]></message>
-                      <stack-trace><![CDATA[at Connect4.Tests.GameTests.Tie() in c:\Users\paiston.APOLLOMEDICAL\OneDrive\GitHub\connect4\Connect4.Tests\GameTests.cs:line 162
-]]></stack-trace>
-                    </failure>
-                  </test-case>
+                  <test-case name="Connect4.Tests.GameTests.PartFillGridNoWin" executed="True" result="Success" success="True" time="0.068" asserts="1" />
+                  <test-case name="Connect4.Tests.GameTests.Tie" executed="True" result="Success" success="True" time="6.250" asserts="1" />
                   <test-case name="Connect4.Tests.GameTests.VerticalWin" executed="True" result="Success" success="True" time="0.000" asserts="1" />
                 </results>
               </test-suite>
