@@ -19,13 +19,11 @@ namespace Connect4.Players
             Console.WriteLine(state);
             Console.Write("Whats your move (1-7)?");
             char c = Console.ReadKey().KeyChar;
-            int move; 
+            int move;
 
-            if(!int.TryParse(c.ToString(), out move))
+            if (!int.TryParse(c.ToString(), out move))
             {
-                throw new ArgumentOutOfRangeException(string.Format("'{0}' is not a valid move. Please enter a value between 1-7", move));
             }
-
             return move;
         }
     }

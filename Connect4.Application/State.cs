@@ -9,23 +9,13 @@ namespace Connect4
     public class State
     {
         public int[,] Values;
-        public int[] RowCount;       
+        public int[] RowCount;
         public int StateValue;
+        public int MoveCount;
+        public int Turn;
         
         public Dictionary<int, State> Successors;
         protected readonly IBoardSettings _BoardSettings;
-
-        public int Turn
-        {
-            get { return _BoardSettings.Turn; }
-            set { _BoardSettings.Turn = value; }
-        }
-
-        public int MoveCount
-        {
-            get { return _BoardSettings.MoveCount; }
-            set { _BoardSettings.MoveCount = value; }
-        }
 
         /// <summary>
         /// New state base on old state
@@ -36,6 +26,8 @@ namespace Connect4
             Values = (int[,])original.Values.Clone();
             RowCount = (int[])original.RowCount.Clone();
             _BoardSettings = original._BoardSettings;
+            MoveCount = original.MoveCount;
+            Turn = original.Turn;
         }
 
         /// <summary>
@@ -43,13 +35,14 @@ namespace Connect4
         /// </summary>
         /// <param name="cols">No. of columns within grid</param>
         /// <param name="rows">No. of Rows within grid.</param>
-        public State(IBoardSettings boardSettings)
+        public State(IBoardSettings boardSettings, int firstPlayer=1)
         {
             _BoardSettings = boardSettings;
 
             Values = new int[_BoardSettings.Columns, _BoardSettings.Rows];
             RowCount = new int[_BoardSettings.Columns];
-            _BoardSettings.MoveCount = 0;
+            MoveCount = 0;
+            Turn = firstPlayer;
         }
         
         #region Game Methods
@@ -69,14 +62,13 @@ namespace Connect4
             }
             
             int m = iMove - 1;
-
-
+            
             if (state.RowCount[m] == _BoardSettings.Rows) return null;  //column full.
 
             state.RowCount[m]++;
             state.Values[m, (_BoardSettings.Rows - state.RowCount[m])] = state.Turn; //updates the board.
             state.Turn = (state.Turn == 1) ? 2 : 1; //switch player.
-            state._BoardSettings.MoveCount++;
+            state.MoveCount++;
 
             return state;
         }
@@ -197,7 +189,7 @@ namespace Connect4
                 sb.Append("\n\n");
             }
 
-            sb.Append(string.Format("\n\nMoves: {0} \nNext turn: Player {1}\n", _BoardSettings.MoveCount.ToString(), Turn.ToString()));
+            sb.Append(string.Format("\n\nMoves: {0} \nNext turn: Player {1}\n", MoveCount.ToString(), Turn.ToString()));
             
             return sb.ToString();
         }

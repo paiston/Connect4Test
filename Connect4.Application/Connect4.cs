@@ -71,8 +71,8 @@ namespace Connect4
                 w = CheckGameStateForWin();
                 Winner = (w !=0);
 
-                Console.Clear();
-                Console.WriteLine(GameState);
+                //Console.Clear();
+                //Console.WriteLine(GameState);
             }
             
             _Message.Clear();

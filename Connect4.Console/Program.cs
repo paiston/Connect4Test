@@ -15,10 +15,10 @@ namespace Connect4.Console
 
         private static void StartGame()
         {
-            BoardSettings boardSettings = new BoardSettings() { Columns = 7, Rows = 6, WinningCount = 4, Turn = 1, MoveCount = 0 };
+            BoardSettings boardSettings = new BoardSettings() { Columns = 7, Rows = 6, WinningCount = 4 };
             
             Connect4 c4 = new Connect4(boardSettings, new Message());
-            c4.Player1 = new Human(); 
+            c4.Player1 = new Human();
             c4.Player2 = new Computer(2, boardSettings);
                         
             c4.PlayGame();

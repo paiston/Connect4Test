@@ -16,7 +16,7 @@ namespace Connect4.Tests
         [SetUp]
         public void Setup()
         {
-            boardSettings = new BoardSettings() { Columns = 7, Rows = 6, WinningCount = 4, Turn = 1, MoveCount = 0 };
+            boardSettings = new BoardSettings() { Columns = 7, Rows = 6, WinningCount = 4};
 
             c4 = new Connect4(boardSettings, new Message());
             c4.Player1 = new Human();
